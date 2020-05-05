@@ -1,0 +1,191 @@
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#menu1">Deposite in Wallet</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#menu2">Deposite in Bank</a>
+    </li>
+</ul>
+
+
+<div class="tab-content">
+    <div id="menu1" class="tab-pane active pb-1 mb-2"><br>
+        <div class="d-flex mb-5 ml-5">
+            <i class=" fa fa-suitcase fa-5x" aria-hidden="true"></i>
+            <i class="mx-4 mt-4 fa fa-plus-circle fa-2x " aria-hidden="true"></i>
+            <i class="fa fa-money fa-5x" aria-hidden="true"></i>
+        </div>
+        <form [formGroup]="depositeForm" class="ml-5" action="javascript:void(0);" autocomplete="off">
+            <div class="form-group d-flex">
+                <label  class="mr-5">Add Through</label>
+                <select class="form-control" formControlName="addThrough">
+                    <option selected></option>
+                    <option>JsutPay Bank</option>
+                    <option>Credit Card</option>
+                    <option>Debit card</option>
+                </select>
+                <label  class="text-danger" *ngIf="depositeForm.get('addThrough').touched && depositeForm.get('addThrough').errors?.required">
+                    Required Field
+                </label>
+            </div>
+            <div class="form-group d-flex">
+                <label  class="mr-5">Add Amount</label>
+                <input class="form-control" formControlName="amount">
+                <label class="text-danger"
+                *ngIf="depositeForm.get('amount').touched && depositeForm.get('amount').errors?.required">
+                Required Field
+                </label>
+                <label class="text-danger"
+                    *ngIf="depositeForm.get('amount').touched && depositeForm.get('amount').errors?.pattern">
+                    Only Numbers are Allowed
+                </label>
+
+            </div>
+            <div class="form-group mb-4">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#addMoney" [disabled]="!depositeForm.valid" (click)="addMoneyInWallet()">Proceed</button>
+            </div>
+
+        </form>
+    </div>
+    <div id="menu2" class="tab-pane fade pb-1 mb-2"><br>
+        <div class="d-flex mb-5 ml-5">
+            <i class=" fa fa-university fa-5x" aria-hidden="true"></i>
+            <i class="mx-4 mt-4 fa fa-plus-circle fa-2x " aria-hidden="true"></i>
+            <i class="fa fa-money fa-5x" aria-hidden="true"></i>
+        </div>
+        <form [formGroup]="depositeForm" class="ml-5" action="javascript:void(0);" autocomplete="off">
+            <div class="form-group d-flex">
+                <label  class="mr-5">Add Through</label>
+                <select class="form-control" formControlName="addThrough">
+                    <option selected></option>
+                    <option>Credit Card</option>
+                    <option>Debit card</option>
+                </select>
+                <label  class="text-danger" *ngIf="depositeForm.get('addThrough').touched && depositeForm.get('addThrough').errors?.required">
+                    Required Field
+                </label>
+            </div>
+            <div class="form-group d-flex">
+                <label  class="mr-5">Add Amount</label>
+                <input class="form-control" formControlName="amount">
+                <label class="text-danger"
+                *ngIf="depositeForm.get('amount').touched && depositeForm.get('amount').errors?.required">
+                Required Field
+                </label>
+                <label class="text-danger"
+                    *ngIf="depositeForm.get('amount').touched && depositeForm.get('amount').errors?.pattern">
+                    Only Numbers are Allowed
+                </label>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#addMoney" [disabled]="!depositeForm.valid" (click)="addMoneyInBank()">Proceed</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<div class="modal" id="addMoney">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Enter You Details...</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form [formGroup]="cardForm" class="ml-5" action="javascript:void(0);" autocomplete="off">
+                    <div class="form-group">
+                        <label class="mr-4">Card Number</label><br>
+                        <div class="d-flex">
+                            <input class="form-control" formControlName = "CardNumber">
+                        <i class="fa fa-credit-card-alt fa-2x ml-3" aria-hidden="true"></i>
+                        </div>
+                        <label class="text-danger" 
+                        *ngIf = "cardForm.get('CardNumber').touched && cardForm.get('CardNumber').errors?.required">
+                            Required Field
+                        </label>
+                        <label class="text-danger" 
+                        *ngIf = "cardForm.get('CardNumber').touched && cardForm.get('CardNumber').errors?.pattern">
+                            Card No. shold be 16 Digits
+                        </label>
+                    </div>
+                    <div class="d-flex">
+                        <div class="form-group">
+                            <label class="mr-4">Expiry</label><br>
+                            <div class="d-flex">
+                                <input class="form-control" formControlName="Month" id="expiry_month" maxlength="2">
+                                <span class="mx-1">/</span>
+                                <input class="form-control" id="expiry_year" formControlName="Year" maxlength="2">
+                                <label class="text-danger" 
+                        *ngIf = "cardForm.get('Month').touched && cardForm.get('Month').errors?.required">
+                            Required Field
+                        </label>
+                        <label class="text-danger" 
+                        *ngIf = "cardForm.get('Year').touched && cardForm.get('Year').errors?.required">
+                            Required Field
+                        </label>
+                            </div>
+                        </div>
+                        <div class="form-group ml-5">
+                            <label>CVV</label><br>
+                            <input class="form-control" id="cvv" formControlName= "Cvv" maxlength="3">
+                            <label class="text-danger" 
+                        *ngIf = "cardForm.get('Cvv').touched && cardForm.get('Cvv').errors?.required">
+                            Required Field
+                        </label>
+                        <label class="text-danger" 
+                        *ngIf = "cardForm.get('Cvv').touched && cardForm.get('Cvv').errors?.pattern">
+                            Cvv should be 3 digit
+                        </label>
+                        </div>
+                        <img src="/assets/images/cvv.png" alt="cvv-image" id="cvv_image" class="ml-3">
+                    </div>
+                    <div class="from-group">
+                        <label >Card Holder's Name</label><br>
+                        <div class="d-flex">
+                            <input class="form-control" formControlName= "HolderName">
+                        <i class="fa fa-user-secret fa-2x ml-3" aria-hidden="true"></i>
+                        </div>
+                        <label class="text-danger" 
+                        *ngIf = "cardForm.get('HolderName').touched && cardForm.get('HolderName').errors?.required">
+                            Required Field
+                        </label>
+                        <label class="text-danger" 
+                        *ngIf = "cardForm.get('HolderName').touched && cardForm.get('HolderName').errors?.pattern">
+                            Only characters allowed
+                        </label>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label >PIN</label><br>
+                        <div class="d-flex">
+                            <input type="password" id="pin" class="form-control" formControlName= "Pin">
+                        <i class="fa fa-eye-slash fa-2x ml-3" aria-hidden="true"></i>
+                        </div>
+                        <label class="text-danger" 
+                        *ngIf = "cardForm.get('Pin').touched && cardForm.get('Pin').errors?.required">
+                            Required Field
+                        </label>
+                        <label class="text-danger" 
+                        *ngIf = "cardForm.get('Pin').touched && cardForm.get('Pin').errors?.pattern">
+                            Pin shold be 4 Digits
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" [disabled]= "!cardForm.valid" (click)="addMoney()" data-dismiss="modal">Proceed</button>
+                    </div>
+
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>

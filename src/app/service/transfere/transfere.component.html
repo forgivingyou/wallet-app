@@ -1,0 +1,152 @@
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#menu1">Transfere to Wallet</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#menu2">Transfere to Bank</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#menu3">Transfere from Wallet to Bank</a>
+    </li>
+</ul>
+
+
+<div class="tab-content">
+    <div id="menu1" class="tab-pane active pb-1 mb-2"><br>
+        <div class="d-flex mb-5 ml-5">
+            <i class=" fa fa-suitcase fa-5x" aria-hidden="true"></i>
+            <i class="mx-4 mt-4 fa fa-exchange fa-2x " aria-hidden="true"></i>
+            <i class=" fa fa-suitcase fa-5x" aria-hidden="true"></i>
+        </div>
+        <form [formGroup]="transfereForm" class="ml-5" action="javascript:void(0);" autocomplete="off">
+            <div class="form-group d-flex">
+                <label class="mr-5">Enter Mobile No.</label>
+                <input  class="form-control" formControlName="mobileNo">
+                <label class="text-danger" *ngIf="transfereForm.get('mobileNo').touched && transfereForm.get('mobileNo').errors?.required">
+                    Required Field
+                </label>
+                <label class="text-danger" *ngIf="transfereForm.get('mobileNo').touched && transfereForm.get('mobileNo').errors?.pattern">
+                    Enter 10 digit Number
+                </label>
+
+            </div>
+            <div class="form-group d-flex">
+                <label class="mr-5">Transfere Amount</label>
+                <input  class=" form-control" formControlName="amount">
+                <label class="text-danger"
+                *ngIf="transfereForm.get('amount').touched && transfereForm.get('amount').errors?.required">
+                Required Field
+                </label>
+                <label class="text-danger"
+                    *ngIf="transfereForm.get('amount').touched && transfereForm.get('amount').errors?.pattern">
+                    Only Numbers are Allowed
+                </label>
+            </div>
+            <div class="form-group d-flex">
+                <label class="mr-5">Enter JustPay Pin</label>
+                <input class="form-control" formControlName="justPayPin" type="password">
+                <label class="text-danger"
+                *ngIf="transfereForm.get('justPayPin').touched && transfereForm.get('justPayPin').errors?.required">
+                Required Field
+                </label>
+                <label class="text-danger"
+                    *ngIf="transfereForm.get('justPayPin').touched && transfereForm.get('justPayPin').errors?.pattern">
+                    Pin Should be 6 digits
+                </label>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" (click)="transfereInWallet()" >Proceed</button>
+            </div>
+        </form>
+    </div>
+    <div id="menu2" class="tab-pane fade pb-1 mb-2"><br>
+        <div class="d-flex mb-5 ml-5">
+            <i class=" fa fa-university fa-5x" aria-hidden="true"></i>
+            <i class="mx-4 mt-4 fa fa-exchange fa-2x " aria-hidden="true"></i>
+            <i class=" fa fa-university fa-5x" aria-hidden="true"></i>
+        </div>
+        <form [formGroup]="transfereForm" class="ml-5" action="javascript:void(0);">
+            <div class="form-group d-flex">
+                <label class="mr-5">Enter JustPay UPI</label>
+                <input class="form-control" formControlName="upi">
+                <label class="text-danger"
+                *ngIf="transfereForm.get('upi').touched && transfereForm.get('upi').errors?.required">
+                Required Field
+                </label>
+                <label class="text-danger"
+                    *ngIf="transfereForm.get('upi').touched && transfereForm.get('upi').errors?.minlength">
+                    Upi Should be 14 digit
+                </label>
+                <label class="text-danger"
+                    *ngIf="transfereForm.get('upi').touched && transfereForm.get('upi').errors?.maxlength">
+                    Upi Should be 14 digit
+                </label>
+            </div>
+            <div class="form-group d-flex">
+                <label class="mr-5">Transfere Amount</label>
+                <input  class="form-control" formControlName="amount">
+                <label class="text-danger"
+                *ngIf="transfereForm.get('amount').touched && transfereForm.get('amount').errors?.required">
+                Required Field
+                </label>
+                <label class="text-danger"
+                    *ngIf="transfereForm.get('amount').touched && transfereForm.get('amount').errors?.pattern">
+                    Only Numbers are Allowed
+                </label>
+            </div>
+            <div class="form-group d-flex">
+                <label class="mr-5">Enter JustPay Pin</label>
+                <input class="form-control" formControlName="justPayPin" type="password">
+                <label class="text-danger"
+                *ngIf="transfereForm.get('justPayPin').touched && transfereForm.get('justPayPin').errors?.required">
+                Required Field
+                </label>
+                <label class="text-danger"
+                    *ngIf="transfereForm.get('justPayPin').touched && transfereForm.get('justPayPin').errors?.pattern">
+                    Pin Should be 6 digits
+                </label>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" (click)="transfereInBank()">Proceed</button>
+            </div>
+        </form>
+
+    </div>
+    <div id="menu3" class="tab-pane fade pb-1 mb-2"><br>
+        <div class="d-flex mb-5 ml-5">
+            <i class=" fa fa-suitcase fa-5x" aria-hidden="true"></i>
+            <i class="mx-4 mt-4 fa fa-exchange fa-2x " aria-hidden="true"></i>
+            <i class=" fa fa-university fa-5x" aria-hidden="true"></i>
+        </div>
+        <form [formGroup]="transfereForm" class="ml-5" action="javascript:void(0);">
+            <div class="form-group d-flex">
+                <label class="mr-5">Transfere Amount</label>
+                <input  class="form-control" formControlName="amount">
+                <label class="text-danger"
+                *ngIf="transfereForm.get('amount').touched && transfereForm.get('amount').errors?.required">
+                Required Field
+                </label>
+                <label class="text-danger"
+                    *ngIf="transfereForm.get('amount').touched && transfereForm.get('amount').errors?.pattern">
+                    Only Numbers are Allowed
+                </label>
+            </div>
+            <div class="form-group d-flex">
+                <label class="mr-5">Enter JustPay Pin</label>
+                <input class="form-control" formControlName="justPayPin" type="password">
+                <label class="text-danger"
+                *ngIf="transfereForm.get('justPayPin').touched && transfereForm.get('justPayPin').errors?.required">
+                Required Field
+                </label>
+                <label class="text-danger"
+                    *ngIf="transfereForm.get('justPayPin').touched && transfereForm.get('justPayPin').errors?.pattern">
+                    Pin Should be 6 digits
+                </label>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" (click)="transfereFromWalletInBank()">Proceed</button>
+            </div>
+        </form>
+
+    </div>
+</div>

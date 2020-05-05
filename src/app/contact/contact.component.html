@@ -1,0 +1,70 @@
+<div class="container">
+    <h1 class="my-5 ml-5 text-secondary">Contact</h1>
+    <hr>
+    <div class="mt-5 text-left">
+        <span id="H">H</span> ave an idea for a mobile app? Want to market your business in the best way possible?
+        Whatever your needs in the mobile marketing world, we’re the ones you can count on! 
+        Fill out this form or drop us a line at our mailbox, and we’ll be happy to get back 
+        to you with solutions and ideas.
+        <form [formGroup]="contactForm" class="mt-5" autocomplete="off">
+            <div class="d-flex">
+                <div>
+                    <div class="form-group">
+                        <input placeholder="Name" formControlName="Name" class="form-control" />
+                        <label class="text-danger"
+                            *ngIf="contactForm.get('Name').touched && contactForm.get('Name').errors?.required">
+                            Required Field
+                    </label>
+                    </div>
+                    <div class="form-group">
+                        <input placeholder="Email" formControlName="Email" class="form-control" />
+                        <label class="text-danger"
+                        *ngIf="contactForm.get('Email').touched && contactForm.get('Email').errors?.required">
+                        Required Field
+                        </label>
+                        <label class="text-danger"
+                        *ngIf="contactForm.get('Email').touched && contactForm.get('Email').errors?.email">
+                        Invalid Email
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="subject" formControlName="Subject" class="form-control" />
+                        <label class="text-danger"
+                        *ngIf="contactForm.get('Subject').touched && contactForm.get('Subject').errors?.required">
+                        Required Field
+                        </label>
+                    </div>
+                </div>
+                <div class="ml-2">
+                    <div class="form-group">
+                        <textarea placeholder="Message" formControlName="Message" class="form-control"  cols="25" rows="5"></textarea>
+                        <label class="text-danger"
+                        *ngIf="contactForm.get('Message').touched && contactForm.get('Message').errors?.required">
+                        Required Field
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button [disabled]="!contactForm.valid" class="btn btn-primary">Contact</button>
+            </div>
+        </form>
+        <div class="mt-5">
+            <div class="d-flex">
+                <a href=""><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
+                <a href=""><i class="fa fa-twitter-square fa-2x ml-2" aria-hidden="true"></i></a>
+            </div>
+            <div class="mt-4 mb-5">
+                <div class="d-flex">
+                    <span><b>Call:</b></span>
+                    <span class="ml-2 text-secondary">8182001851</span>
+                </div>
+                <div class="d-flex">
+                    <span><b>Email:</b></span>
+                    <span class="ml-2 text-secondary">000raghuvanshi@gmail.com</span>
+                </div>
+            </div>
+            <hr class="mb-5">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+ul{
+    margin-left: 8%;
+}
+li{
+    margin-left: 13%;
+    font-size: 20px;
+}
+.btn-outline-success:hover{
+    background-color: #33958F;
+    color: white;
+}
+.btn-outline-danger:hover{
+    background-color: red;
+    color: #fff;
+}
+.active{
+    color: orange;
+}
+#justPay{
+    font: normal normal bold 30px/1.2em raleway,sans-serif;
+    color: #33958F;
+}
+#wallet{
+    font: normal normal normal 20px/1.2em 'open sans',sans-serif;
+    color: orange;
+}

@@ -1,0 +1,302 @@
+<div class="container green pt-5">
+    <div class="bg-white d-flex ml-sm-5 p-2">
+        <div class="d-flex">
+            <img src="/assets/images/profile.png" id="profile_pic" alt="profile pic">
+            <i class="fa fa-pencil-square fa-2x ml-2 pt-5 mt-5 pt-3" aria-hidden="true"></i>
+            <div class="ml-5 mt-5">
+                <button class="btn d-block text-white btn-danger " (click)="logOut()">LogOut</button>
+                <button class="btn d-block mt-2 btn-success" data-toggle="modal" data-target="#delete">Delete Ac.</button>
+            </div>
+        </div>
+        <div class=" mt-2">
+            <span class="text-danger"><Strong>CARD</Strong></span>
+            <div class="card p-2 text-secondary">
+            <h6 >{{userMoney.cardNo}}</h6>
+            <h6 >{{userMoney.month}}/{{userMoney.year}}   --  {{userMoney.cvv}}</h6>
+            <h6 >{{userMoney.pin}}</h6>
+            </div>
+        </div>
+        <div class="mt-5 ml-sm-5" id="imp_details">
+            <div><span>OWNER : </span> {{user.firstName}}</div>
+            <div><span>MOBILE : </span> {{user.mobileNo}}</div>
+            <div><span>UPI : </span> {{userMoney.upi}}</div>
+        </div>
+
+    </div>
+</div>
+<div class="w-sm-75 container">
+    <div class="bg-light d-flex mx-sm-5 p-2  mt-4 bordr">
+        <div class="d-flex mt-3 mx-sm-5">
+            <i class="fa fa-suitcase fa-3x" aria-hidden="true"></i>
+            <div class="ml-4 mt-2" id="justpay_wallet">
+                <span class="mr-2" id="justpay">__JustPay__</span>||<span class="ml-2 wallet">Wallet</span>
+            </div>
+        </div>
+        <div class="mt-4 balance mx-5">
+            <span class="mr-2">BALANCE : </span> {{userMoney.walletBalance}} | <i class="fa fa-inr" aria-hidden="true"></i>
+        </div>
+
+        <div class="mt-4 mx-5">
+            <button class="btn btn-primary" routerLink="../service/deposite">Add Money</button>
+        </div>
+
+
+    </div>
+
+    <div class="bg-light d-flex mx-sm-5 p-2  mt-4 bordr">
+        <div class="d-flex mt-3 mx-sm-5">
+            <i class="fa fa-university fa-3x" aria-hidden="true"></i>
+            <div class="ml-4 mt-2" id="justpay_bank">
+                <span class="mr-2" id="justpay">__JustPay__</span>||<span class="ml-2 bank">Bank</span>
+            </div>
+        </div>
+        <div class="mt-4 balance mx-5">
+            <span class="mr-2">BALANCE : </span> {{userMoney.bankBalance}} | <i class="fa fa-inr" aria-hidden="true"></i>
+        </div>
+
+        <div class="mt-4 mx-5">
+            <button class="btn btn-primary" routerLink="../service/deposite">Add Money</button>
+        </div>
+
+    </div>
+
+</div>
+<div class="green w-sm-75 container pb-4 mt-4" id="profile_details">
+    <div class="bg-white mx-sm-5">
+        <button class="btn m-3" id="edit_profile" (click)="updateUser()" data-toggle="modal" data-target="#updateUser">Edit Profile</button>
+    </div>
+    <div class="d-flex ml-sm-5 pl-sm-5">
+        <div class="w-sm-25">
+            <div class="label">First Name -</div>
+            <div>{{user.firstName}}</div>
+        </div>
+        <div class="w-sm-25">
+            <div class="label">Last Name -</div>
+            <div>{{user.lastName}}</div>
+        </div>
+    </div>
+    <div class="d-flex ml-sm-5 pl-sm-5">
+
+        <div class="w-sm-25">
+            <div class="label">Email -</div>
+            <div>{{user.email}}</div>
+        </div>
+
+    </div>
+    <div class="d-flex ml-sm-5 pl-sm-5">
+        <div class="w-sm-25">
+            <div class="label">Gender -</div>
+            <div>{{user.gender}}</div>
+        </div>
+        <div class="w-sm-25">
+            <div class="label">Age -</div>
+            <div>{{user.age}}</div>
+        </div>
+    </div>
+    <div class="d-flex ml-sm-5 pl-sm-5">
+        <div class="w-sm-25">
+            <div class="label">Adhaar Card -</div>
+            <div>{{user.aadharNo}}</div>
+        </div>
+        <div class="w-sm-25 ">
+            <div class="label">Pan Card -</div>
+            <div>{{user.panNo}}</div>
+        </div>
+    </div>
+    <div class="d-flex ml-sm-5 pl-sm-5">
+        <div class="w-sm-25">
+            <div class="label">Mobile No. -</div>
+            <div>{{user.mobileNo}}</div>
+        </div>
+        <div class="w-sm-25 ">
+            <div class="label">Password -</div>
+            <div>{{user.userPin}}</div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<div class="modal" id="delete">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form [formGroup]="deleteForm" action="javascript:void(0);">
+                    <div class="form-group required">
+                        <label>Password</label>
+                        <div id="password">
+                            <input type="password" [type]="show ? 'text' : 'password'" class="form-control" formControlName="password">
+                            <i class="fa fa-eye fa-2x ml-1" aria-hidden="true" (click)="password()"></i>
+                        </div>
+                        <label class="text-danger" *ngIf="deleteForm.get('password').touched && deleteForm.get('password').errors?.required">
+                            Required Field
+                        </label>
+                        <label class="text-danger" *ngIf="deleteForm.get('password').touched && deleteForm.get('password').errors?.minlength">
+                            Minimum 4 length
+                        </label>
+                    </div>
+                </form>
+                
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button class="btn btn-primary" (click)="delete()" [disabled]="!deleteForm.valid">Proceed</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="updateUser">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Update You Details...</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form [formGroup]= "registerForm" autocomplete="off" (submit)="onSubmit()">
+                    <div class="d-flex">
+                        <div class="form-group required">
+                            <label>First Name</label>
+                            <input class="form-control" formControlName="firstName">
+                            <label  class="text-danger" *ngIf="registerForm.get('firstName').touched && registerForm.get('firstName').errors?.required">
+                                Required Field
+                            </label>
+                            <label  class="text-danger" *ngIf="registerForm.get('firstName').touched && registerForm.get('firstName').errors?.pattern">
+                                Only Characters are Allowed
+                            </label>
+                        </div>
+                        <div class="form-group required ml-3">
+                            <label>Last Name</label>
+                            <input class="form-control" formControlName="lastName">
+                            <label  class="text-danger" *ngIf="registerForm.get('lastName').touched && registerForm.get('lastName').errors?.required">
+                                Required Field
+                            </label>
+                            <label  class="text-danger" *ngIf="registerForm.get('lastName').touched && registerForm.get('lastName').errors?.pattern">
+                                Only Characters are Allowed
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label>email</label>
+                        <input class="form-control" formControlName="email">
+                        <label  class="text-danger" *ngIf="registerForm.get('email').touched && registerForm.get('email').errors?.required">
+                            Required Field
+                        </label>
+                        <label  class="text-danger" *ngIf="registerForm.get('email').touched && registerForm.get('email').errors?.email">
+                            Invalid email
+                        </label>
+                    </div>
+                    <div class="d-flex">
+                        <div class="form-group required">
+                            <label>gender</label>
+                            <select class="form-control" formControlName="gender">
+                                <option selected></option>
+                                <option >Male</option>
+                                <option>Female</option>
+                                <option>Prefer Not to Say</option>
+                            </select>
+                            <label  class="text-danger" *ngIf="registerForm.get('gender').touched && registerForm.get('gender').errors?.required">
+                                Required Field
+                            </label>
+                        </div>
+                        <div class="form-group ml-3 required">
+                            <label>age</label>
+                            
+                            <input class="form-control" formControlName="age" id="age">
+                            <label  class="text-danger" *ngIf="registerForm.get('age').touched && registerForm.get('age').errors?.required">
+                                Required Field
+                            </label>
+                            <label  class="text-danger" *ngIf="registerForm.get('age').touched && registerForm.get('age').errors?.pattern">
+                                Invalid age
+                            </label>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="form-group required">
+                            <label>Aaadhar No.</label>
+                            <input class="form-control" formControlName="aadharNo">
+                            <label  class="text-danger" *ngIf="registerForm.get('aadharNo').touched && registerForm.get('aadharNo').errors?.required">
+                                Required Field
+                            </label>
+                            <label  class="text-danger" *ngIf="registerForm.get('aadharNo').touched && registerForm.get('aadharNo').errors?.pattern">
+                               Enter 12 Digit Aaadhars
+                            </label>
+                        </div>
+                        <div class="form-group ml-3 required">
+                            <label>PanCard No.</label>
+                            <input class="form-control" formControlName="panNo">
+                            <label  class="text-danger" *ngIf="registerForm.get('panNo').touched && registerForm.get('panNo').errors?.required">
+                                Required Field
+                            </label>
+                            <label  class="text-danger" *ngIf="registerForm.get('panNo').touched && registerForm.get('panNo').errors?.minlength">
+                                Enter 10 Characters Pan
+                            </label>
+                            <label  class="text-danger" *ngIf="registerForm.get('panNo').touched && registerForm.get('panNo').errors?.maxlength">
+                                Enter 10 Characters Pan
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label>Mobile No.</label>
+                        <input class="form-control" formControlName="mobileNo">
+                        <label class="text-danger" *ngIf="registerForm.get('mobileNo').touched && registerForm.get('mobileNo').errors?.required">
+                            Required Field
+                        </label>
+                        <label class="text-danger" *ngIf="registerForm.get('mobileNo').touched && registerForm.get('mobileNo').errors?.pattern">
+                            Enter 10 digit Number
+                        </label>
+                    </div>
+                    <div class="d-flex">
+                        <div class="form-group required">
+                            <label>Password</label>
+                            <div id="password">
+                                <input type="password" [type]="show ? 'text' : 'password'" class="form-control" formControlName="password">
+                                <i class="fa fa-eye fa-2x ml-1" aria-hidden="true" (click)="password()"></i>
+                            </div>
+                            <label class="text-danger" *ngIf="registerForm.get('password').touched && registerForm.get('password').errors?.required">
+                                Required Field
+                            </label>
+                            <label class="text-danger" *ngIf="registerForm.get('password').touched && registerForm.get('password').errors?.minlength">
+                                Minimum 4 length
+                            </label>
+                        </div>
+                        <div class="form-group ml-3 required">
+                            <label>Create JustPay Pin</label>
+                            <input type="password" class="form-control" formControlName="userPin">
+                            <label class="text-danger" *ngIf="registerForm.get('userPin').touched && registerForm.get('userPin').errors?.required">
+                                Required Field
+                            </label>
+                            <label class="text-danger" *ngIf="registerForm.get('userPin').touched && registerForm.get('userPin').errors?.pattern">
+                                Pin must be 6 Digit Only
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary" [disabled]= "!registerForm.valid">Register</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+

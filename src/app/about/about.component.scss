@@ -1,0 +1,28 @@
+h1{
+    font-size: 70px;
+}
+
+.d-flex div:nth-child(2){
+    margin-top: 16%;
+}
+.d-flex div:nth-child(3){
+    margin-top: 12%;
+}
+.d-flex div:nth-child(4){
+    margin-top: 22%;
+}
+.text-left{
+    width: 38%;
+    margin-left: 25%;
+}
+hr{
+    height: 1px;
+    background-color: orange;
+    border: none;
+}
+@media screen and (max-width:420px){
+    .text-left{
+        width: 90%;
+        margin-left: 1%;
+    }
+}

@@ -1,0 +1,31 @@
+<div id="showBalance" class="px-sm-5 container">
+    <div class="d-flex mt-4">
+        <i class="fa fa-suitcase fa-4x" aria-hidden="true"></i>
+        <div class="ml-3 mt-2" id="justpay_wallet">
+            <span class="mr-2" id="justpay">__JustPay__</span>||<span class="ml-2 wallet">Wallet</span>
+        </div>
+    </div>
+    <div class="my-3 balance">
+        <span class="mr-2">BALANCE : </span> {{userMoney.walletBalance}} | <i class="fa fa-inr" aria-hidden="true"></i>
+    </div>
+    
+    <div class="mt-5">
+        <button class="btn btn-primary" routerLink="../deposite">Add Money</button>
+    </div>
+    
+    <hr>
+    <div class="d-flex">
+        <i class="fa fa-university fa-4x" aria-hidden="true"></i>
+        <div class="ml-3 mt-2" id="justpay_bank">
+            <span class="mr-2" id="justpay">__JustPay__</span>||<span class="ml-2 bank">Bank</span>
+        </div>
+    </div>
+    <div class="my-3 balance">
+        <span class="mr-2">BALANCE : </span> {{userMoney.bankBalance}} | <i class="fa fa-inr" aria-hidden="true"></i>
+    </div>
+    
+    <div class="mt-5">
+        <button class="btn btn-primary" routerLink="../deposite">Add Money</button>
+    </div>
+    <hr>
+</div>

@@ -1,0 +1,23 @@
+h1{
+    font-size: 60px;
+}
+.d-flex{
+    flex-wrap: wrap;
+}
+.rounded-circle{
+    cursor: pointer;
+    width: 120px;
+    height: 120px;
+    background-color:  rgb(56, 216, 205);
+}
+.rounded-circle span{
+    font-weight: 500;
+}
+hr{
+    height: 1px;
+    background-color: orange;
+    border: none;
+}
+a:hover{
+    text-decoration: none;
+}

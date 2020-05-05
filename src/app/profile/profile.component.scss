@@ -1,0 +1,126 @@
+.d-flex{
+    flex-wrap: wrap;
+}
+.green{
+    background-color: rgb(32, 196, 185);
+}
+#profile_pic{
+    width: 20%;
+}
+#imp_details{
+    font-weight: 500;
+    font-size: 15px;
+}
+#imp_details span{
+    color: red;
+    font-weight: 700;
+}
+.fa-check-circle{
+    color: green;
+}
+#justpay_wallet, #justpay_bank{
+    font-size: 20px;
+    font-weight: 500;
+}
+.balance{
+    font-size: 15px;
+}
+.btn-primary{
+    font-size: 12px;
+}
+.fa-suitcase, .fa-university{
+    color: orangered;
+}
+#justpay{
+    color: green;
+}
+.wallet, .bank{
+    color: orange;
+}
+.bordr{
+    border: 1px solid orange;
+}
+#profile_details .w-sm-25, #profile_details .w-sm-50{
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    margin: 2%;
+    padding: 1% 2% 1% 2%;
+    border-radius: 15px;
+}
+.label{
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(247,200,14,1);
+}
+#edit_profile{
+    background-color: rgba(247,200,14,1);
+}
+.modal-body img{
+    width: 90%;
+}
+.fa-credit-card-alt{
+    color: orangered;
+}
+#addMoney .fa-user-secret{
+    color: orange;
+}
+.fa-eye-slash{
+    color: yellowgreen;
+}
+#expiry_month{
+    width: 30px;
+}
+#expiry_year{
+    width: 30px;
+}
+#cvv{
+    width: 50px;
+}
+#cvv_image{
+    width: 25%;
+}
+#pin{
+    width: 70px;
+}
+#password{
+    display: flex;
+}
+#password i{
+    color: sandybrown;
+}
+#password i:hover{
+    cursor: pointer;
+    color: red;
+}
+input{
+    width: 200px;
+    background-color: rgba(0,0,0,0);
+    color: white;
+}
+input.form-control,input.form-control:focus,select.form-control,select.form-control>option{
+    background-color: rgba(135, 214, 66,0.5);
+    color: #fff;
+    border: 1px solid rgb(251, 255, 13);
+
+}
+
+input.form-control:focus{
+    box-shadow: none;
+}
+
+div.form-group label:not(.text-danger){
+    color: rgb(255,255,255);
+    font-weight: 500;
+}
+
+div.form-group.required>label:first-child:after{
+    content:'*';
+    color: rgb(255, 3, 247);
+    padding-left: 5px;
+}
+#password{
+    display: flex;
+}
+.modal-body{
+    background-color: rgb(8, 210, 255);
+}

@@ -1,0 +1,27 @@
+.container{
+    box-shadow: 2px 3px 3px black;
+    min-height: 30vh;
+}
+.my-5 h4,button{
+    box-shadow: 3px 3px 3px rgb(32, 196, 185);
+}
+.d-flex{
+    flex-wrap: wrap;
+}
+@media screen and (max-width:768px){
+    table{
+        width: 100%;
+    }
+    td,th{
+        display: inline-flex;
+    }
+}
+@media screen and (max-width:420px){
+   table{
+       width: 100%;
+   }
+   td,th{
+       display: inline-flex;
+   }
+
+}

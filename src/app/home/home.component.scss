@@ -1,0 +1,57 @@
+#services{
+    border:   solid rgba(229, 125, 34, 1) 4px;
+  }
+  #aboutUs{
+      border: solid rgba(242, 153, 19, 1) 4px;
+  }
+  #contactUs{
+     border:  solid rgba(247, 200, 14, 1) 4px;
+  }
+  h3{
+      color: lightslategrey;
+      font : bolder 40px  Bradley Hand ITC;
+  }
+  h1{
+      color: grey;
+      font : bolder 60px  Bradley Hand ITC;
+  }
+  a{
+      text-decoration: none;
+      color: grey;
+  }
+  a:hover{
+      color: rgba(51,149,143,1);;
+  }
+  #wallet{
+      font: bolder 40px Bradley Hand ITC;
+  }
+  span{
+      font: bolder 30px Bradley Hand ITC;
+      color: rgba(229, 125, 34, 1);
+  }
+  #mobile{
+      background-color: rgb(56, 216, 205);
+  }
+  #mobile_image{
+      width: 500px;
+  }
+  #right-to-image{
+      margin-left: 5%;
+  }
+  .service_list{
+      font-size: 17px;
+  }
+  .d-flex{
+      flex-wrap: wrap;
+  }
+  
+  @media screen and (max-width:420px){
+      #mobile_image{
+          width: 350px;
+      }
+  }
+  @media screen and (max-width:321px){
+      #mobile_image{
+          width: 300px;
+      }
+  }

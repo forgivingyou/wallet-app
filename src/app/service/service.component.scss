@@ -1,0 +1,42 @@
+h1{
+    font-size: 60px;
+}
+#outlet{
+    width: 50%;
+}
+.rounded-circle{
+    cursor: pointer;
+    width: 120px;
+    height: 120px;
+    background-color:  rgb(56, 216, 205);
+}
+.rounded-circle span{
+    font-weight: 500;
+}
+#sidebar-button-div{
+    padding-top: 2%;
+    padding-left: 15%;
+}
+hr{
+    height: 1px;
+    background-color: orange;
+    border: none;
+}
+@media screen and (max-width:768px){
+    #sidebar-button-div,#offers-button-div{
+        display: none;
+    }
+    #outlet{
+        width: 100%;
+       
+    }
+}
+@media screen and (max-width:420px){
+    #sidebar-button-div,#offers-button-div{
+        display: none;
+    }
+    #outlet{
+        width: 100%;
+    }
+
+}

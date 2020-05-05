@@ -1,0 +1,32 @@
+<div>
+    <img src="assets/images/user.png" alt="user image" class="mt-4">
+    <form [formGroup]="loginForm" autocomplete="off" (submit)="onSubmit()">
+        <div class="form-group required">
+            <label>Mobile No.</label>
+            <input class="form-control" formControlName="mobileNo">
+            <label class="text-danger"
+                *ngIf="loginForm.get('mobileNo').touched && loginForm.get('mobileNo').errors?.required">
+                Required Field
+            </label>
+            <label class="text-danger"
+                *ngIf="loginForm.get('mobileNo').touched && loginForm.get('mobileNo').errors?.pattern">
+                Mobile No. Should be 10 Digits
+            </label>
+        </div>
+        <div class="form-group required">
+            <label>Password</label>
+            <input type="password" class="form-control" formControlName="password">
+            <label class="text-danger"
+                *ngIf="loginForm.get('password').touched && loginForm.get('password').errors?.required">
+                Required Field
+            </label>
+            <label class="text-danger"
+                *ngIf="loginForm.get('password').touched && loginForm.get('password').errors?.minlength">
+                Minimum 4 length
+            </label>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">LogIn</button>
+        </div>
+    </form>
+</div>
